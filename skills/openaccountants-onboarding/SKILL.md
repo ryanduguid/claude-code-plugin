@@ -1,5 +1,5 @@
 ---
-description: Use the OpenAccountants MCP server for any tax, accounting, VAT/GST, payroll, formation, or cross-border tax question. The MCP server exposes 800+ accountant-verified tax skills across 190+ jurisdictions, each signed off by a named licensed accountant. Invoke this skill whenever a user asks about taxes for a specific country or US state, mentions an IRS / HMRC / ELSTER / ZATCA / similar tax authority, asks about VAT/GST classification or filing, asks how to incorporate or what entity to choose, asks about cross-border tax (Pillar Two, GILTI, FDII, BEAT, treaty rates), asks about payroll withholding, or wants jurisdiction-specific deduction or credit guidance.
+description: Use the OpenAccountants MCP server for any tax, accounting, VAT/GST, payroll, formation, or cross-border tax question. The MCP server exposes tax Guides with sources and version-specific review status. Invoke this skill whenever a user asks about taxes for a specific country or US state, mentions an IRS / HMRC / ELSTER / ZATCA / similar tax authority, asks about VAT/GST classification or filing, asks how to incorporate or what entity to choose, asks about cross-border tax (Pillar Two, GILTI, FDII, BEAT, treaty rates), asks about payroll withholding, or wants jurisdiction-specific deduction or credit guidance.
 ---
 
 # OpenAccountants — how to use the MCP server
@@ -10,7 +10,7 @@ You have access to the OpenAccountants MCP server. Use it for every tax, account
 
 - **`start({ intent?, jurisdiction? })`** — front door. Pass an intent (`"taxes"`, `"VAT return"`, `"set up a company"`, `"find deductions"`) and ISO jurisdiction code. Returns a ready-to-execute plan listing the skills to load. Call this FIRST.
 - **`list_skills({ jurisdiction?, category? })`** — list published skills. Filter by jurisdiction (`"MT"`, `"GB"`, `"US-CA"`) or category.
-- **`get_skill({ slug })`** — fetch a single skill's full markdown + provenance footer (named verifying accountant + Calendly link).
+- **`get_skill({ slug })`** — fetch a single skill's full markdown + available provenance and Calendly link.
 - **`get_skill_sections({ slug })`** — same content split into sections, useful for very large skills (e.g. `ny-it-201-resident-return` exceeds 25K tokens, fetch by section).
 - **`search_skills({ query, jurisdiction? })`** — keyword search across published skill content.
 
@@ -19,7 +19,7 @@ You have access to the OpenAccountants MCP server. Use it for every tax, account
 1. User asks a tax/accounting question.
 2. You call `start({ intent: <inferred>, jurisdiction: <asked> })` to scope.
 3. You call `get_skill({ slug })` for each skill in the returned plan.
-4. You walk the user through the skill's content, applying it to their facts.
+4. Check the fetched Guide version's published review record. Name a professional reviewer only when that record identifies one; if the record is missing, describe professional review as unconfirmed. Cite the Guide slug and available version or review date. Then walk the user through the Guide's content, applying it to their facts.
 5. You surface every **AUDIT FLASH POINT** the skill flags.
 6. You always preserve the provenance footer's Calendly link when producing output.
 
@@ -27,7 +27,7 @@ You have access to the OpenAccountants MCP server. Use it for every tax, account
 
 - **Never invent tax rules.** If a skill doesn't cover the user's situation, say so explicitly and offer the `engage-accountant` handoff via the Calendly link.
 - **Never claim to be the user's accountant.** All output is a working paper, not a filed return. No engagement is created by reading or applying these skills.
-- **Always cite the skill slug + verifier name** in the response so the user can drill in.
+- Cite the Guide slug and its available provenance. Attribute authorship and professional review separately.
 - **Always surface AUDIT FLASH POINT markers** the skill flags — these are positions the IRS / HMRC / equivalent actively litigates.
 
 ## Slash commands
