@@ -1,6 +1,8 @@
 # OpenAccountants — Claude Code plugin
 
-Adds **800+ accountant-verified tax skills across 190+ jurisdictions** to Claude Code via MCP. Every skill is signed off by a named licensed accountant.
+Connect Claude Code to OpenAccountants tax Guides via MCP, with slash commands for tax and accounting workflows.
+
+Guides include accountant-reviewed versions and source-cited drafts. Check the [current catalogue](https://www.openaccountants.com/skills) and [review method](https://www.openaccountants.com/review-method) for each Guide's review status, reviewer, version and review date. Authorship or a jurisdiction lead's name does not establish professional review of every Guide version.
 
 ## What you get
 
@@ -75,14 +77,14 @@ Every other UN member state has at least foundational coverage.
 
 These skills produce **working papers, not filed returns**. Every output preserves a "Talk to a verified accountant" footer with a Calendly link. No client–accountant relationship is created by reading or applying these skills — that requires a formal engagement letter signed by both you and a verified accountant.
 
-## License
+## Licence
 
-MIT (this plugin wrapper). Underlying skill content is AGPL-3.0 with attribution per [openaccountants/openaccountants](https://github.com/openaccountants/openaccountants/blob/main/LICENSE-ADDITIONAL.md). Commercial licensing available via `info@openaccountants.com`.
+MIT for this plugin wrapper. Guide content has separate terms from this wrapper. The source repository's [licensing document](https://github.com/openaccountants/openaccountants/blob/main/LICENSING.md) describes the source-available OA Guide License, commercial options, third-party copyleft exceptions and prior AGPL releases. Check the terms for the Guide version you use.
 
 ## Links
 
 - Website: [openaccountants.com](https://www.openaccountants.com)
-- Skills source (AGPL): [github.com/openaccountants/openaccountants](https://github.com/openaccountants/openaccountants)
+- Guide source: [github.com/openaccountants/openaccountants](https://github.com/openaccountants/openaccountants)
 - MCP server: `https://www.openaccountants.com/api/mcp`
 - Universal MCP server-card: `https://www.openaccountants.com/.well-known/mcp/server-card.json`
 - Verified accountant network: [openaccountants.com/network](https://www.openaccountants.com/network)
