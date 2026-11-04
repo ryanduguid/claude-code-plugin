@@ -22,7 +22,7 @@ Plus an **auto-invoked Agent Skill** at `skills/openaccountants-onboarding/SKILL
 Clone the plugin and load the checkout for the current Claude Code session:
 
 ```bash
-git clone https://github.com/openaccountants/claude-code-plugin.git openaccountants-claude-code-plugin
+git clone https://github.com/ryanduguid/claude-code-plugin.git openaccountants-claude-code-plugin
 claude --plugin-dir ./openaccountants-claude-code-plugin
 ```
 
@@ -42,13 +42,13 @@ All commands and the onboarding skill ultimately call the **public OpenAccountan
 
 | Tool | Purpose |
 |---|---|
-| `start` | Required intent and optional jurisdiction scope a question |
+| `start` | Scopes a question; `intent` is required and `jurisdiction` optional |
 | `list_skills` | Browse by jurisdiction, domain or role; follow `next_offset` with the same filters |
 | `get_skill` | Fetch a skill version, available provenance and section index |
 | `get_skill_sections` | Fetch deferred sections needed for the question |
 | `search_skills` | Keyword search across published content |
 
-For a capability question with no tax intent yet, use the advertised `start_help` tool. Other tools can save or send information, so do not assume the complete server is read-only. Discovery requests should contain only non-identifying scope, not bank statements, taxpayer identifiers or full working papers. Sharing records or working papers with an external destination requires the user’s explicit agreement to the destination and specific information. Keep local outputs within the user’s authorised task and destination. See the [privacy policy](https://www.openaccountants.com/privacy).
+For a capability question with no tax intent yet, use the advertised `start_help` tool. Other tools can save or send information, so do not assume the complete server is read-only. Tool calls allow limited guest use, then ask you to sign in with a free OpenAccountants account. Discovery requests should contain only non-identifying scope, not bank statements, taxpayer identifiers or full working papers. Sharing records or working papers with an external destination requires the user’s explicit agreement to the destination and specific information. Keep local outputs within the user’s authorised task and destination. See the [privacy policy](https://www.openaccountants.com/privacy).
 
 ## Jurisdictions
 
